@@ -31,7 +31,7 @@ function App() {
 
   const handleAddClick = () => {
     setTodo([{ text, key: uuid() }, ...todoList]);
-    console.log(todoList);
+    // console.log(todoList);
     setText('');
     setBtnDisplay('none');
     setBtnDisabled(true);
@@ -42,7 +42,7 @@ function App() {
   };
 
   const handleEnterKeyPress = (event) => {
-    if (event.charCode === 13) {
+    if (event.charCode === 13 && event.target.value) {
       handleAddClick();
     }
   };
