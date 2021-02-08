@@ -39,6 +39,7 @@ header {
 .todo {
   border: 2px solid rgb(7, 77, 143);
   background-color: rgb(154, 154, 206);
+  border-radius: 0.4rem;
   color: white;
   margin: 1rem;
   width: 20rem;
