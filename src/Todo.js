@@ -5,7 +5,7 @@ export default function Todo(props) {
 
   return (
     <Fragment>
-      <div className='todo' key={id} >
+      <div className='todo' id={id}>
         <p>{todoText}</p>
         <button className='delete-todo' onClick={() => handleDeleteClick(id)}>
           X
