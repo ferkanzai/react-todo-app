@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import './App.css';
 
 import Header from './Header';
@@ -11,16 +11,18 @@ function App() {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [btnDisplay, setBtnDisplay] = useState('none');
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-    if (event.target.value) {
+  useEffect(() => {
+    if(text){
       setBtnDisabled(false);
       setBtnDisplay('');
-    }
-    if (!event.target.value) {
+    } else {
       setBtnDisabled(true);
       setBtnDisplay('none');
     }
+  }, [text])
+
+  const handleChange = (event) => {
+    setText(event.target.value);
   };
 
   const handleCleanClick = () => {
@@ -30,15 +32,14 @@ function App() {
   };
 
   const handleAddClick = () => {
-    setTodo([{ text, key: uuid() }, ...todoList]);
-    // console.log(todoList);
+    setTodo(prevTodoList => [{ text, key: uuid() }, ...prevTodoList]);
     setText('');
     setBtnDisplay('none');
     setBtnDisabled(true);
   };
 
   const handleDeleteClick = (key) => {
-    setTodo(todoList.filter(todo => todo.key !== key))
+    setTodo(prevTodoList => prevTodoList.filter(todo => todo.key !== key))
   };
 
   const handleEnterKeyPress = (event) => {
