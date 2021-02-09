@@ -20,8 +20,8 @@ export default function ButtonSection(props) {
         onChange={handleChange}
         onKeyPress={handleEnterKeyPress}
       />
-      <Button text='ADD' disabled={btnDisabled} handleAddClick={handleAddClick} />
-      <Button text='CLEAN' btnDisplay={btnDisplay} handleCleanClick={handleCleanClick} />
+      <Button text='ADD' disabled={btnDisabled} onClick={handleAddClick} />
+      <Button text='CLEAN' btnDisplay={btnDisplay} onClick={handleCleanClick} />
     </section>
   );
 }
